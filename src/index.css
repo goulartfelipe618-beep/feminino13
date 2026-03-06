@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 30 30% 96%;
+    --foreground: 25 20% 20%;
+
+    --card: 30 25% 98%;
+    --card-foreground: 25 20% 20%;
+
+    --popover: 30 25% 98%;
+    --popover-foreground: 25 20% 20%;
+
+    --primary: 15 45% 65%;
+    --primary-foreground: 30 30% 98%;
+
+    --secondary: 30 20% 93%;
+    --secondary-foreground: 25 20% 35%;
+
+    --muted: 30 15% 92%;
+    --muted-foreground: 25 10% 50%;
+
+    --accent: 15 45% 65%;
+    --accent-foreground: 30 30% 98%;
+
+    --destructive: 0 55% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 15 45% 65%;
+
+    --radius: 1.25rem;
+
+    --sidebar-background: 30 30% 96%;
+    --sidebar-foreground: 25 20% 20%;
+    --sidebar-primary: 15 45% 65%;
+    --sidebar-primary-foreground: 30 30% 98%;
+    --sidebar-accent: 30 20% 93%;
+    --sidebar-accent-foreground: 25 20% 35%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 15 45% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+}
+
+/* Silk card — ultra-diffuse shadow, very rounded */
+.silk-card {
+  background: hsl(30, 25%, 98%);
+  border: 1px solid hsl(30, 20%, 92%);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px hsla(15, 45%, 65%, 0.08), 0 8px 24px hsla(25, 20%, 50%, 0.06);
+}
+
+/* Glassmorphism nav */
+.silk-glass {
+  background: hsla(30, 25%, 98%, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsla(30, 20%, 92%, 0.8);
+  border-radius: 2rem;
+}
+
+/* Silk input */
+.silk-input {
+  background: hsl(30, 20%, 95%);
+  border: 1px solid hsl(30, 15%, 88%);
+  padding: 14px 18px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.875rem;
+  width: 100%;
+  border-radius: 0.875rem;
+  transition: all 0.3s;
+  color: hsl(25, 20%, 20%);
+}
+
+.silk-input::placeholder {
+  color: hsl(25, 10%, 60%);
+}
+
+.silk-input:focus {
+  outline: none;
+  border-color: hsl(15, 45%, 65%);
+  box-shadow: 0 0 0 3px hsla(15, 45%, 65%, 0.15);
+}
+
+/* Silk button — rosé gold */
+.silk-btn {
+  background: linear-gradient(135deg, hsl(15, 45%, 65%), hsl(10, 40%, 58%));
+  color: hsl(30, 30%, 98%);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 2rem;
+  transition: all 0.3s;
+  box-shadow: 0 8px 24px hsla(15, 45%, 65%, 0.25);
+}
+
+.silk-btn:hover {
+  box-shadow: 0 12px 32px hsla(15, 45%, 65%, 0.35);
+  transform: translateY(-1px);
+}
+
+.silk-btn-outline {
+  background: transparent;
+  color: hsl(15, 45%, 65%);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 12px 36px;
+  border: 1.5px solid hsl(15, 45%, 65%);
+  border-radius: 2rem;
+  transition: all 0.3s;
+}
+
+.silk-btn-outline:hover {
+  background: hsl(15, 45%, 65%);
+  color: hsl(30, 30%, 98%);
+}
+
+/* Rosé line */
+.rose-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(15, 45%, 65%), transparent);
+}
+
+/* Pearl pulse */
+@keyframes pearl-pulse {
+  0%, 100% { box-shadow: 0 0 16px hsla(15, 45%, 65%, 0.3), 0 0 32px hsla(30, 30%, 80%, 0.15); }
+  50% { box-shadow: 0 0 24px hsla(15, 45%, 65%, 0.45), 0 0 48px hsla(30, 30%, 80%, 0.25); }
+}
+
+.pearl-glow {
+  animation: pearl-pulse 3s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: hsl(30, 30%, 96%); }
+::-webkit-scrollbar-thumb { background: hsla(15, 45%, 65%, 0.3); border-radius: 3px; }
